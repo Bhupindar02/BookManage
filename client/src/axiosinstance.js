@@ -1,5 +1,5 @@
 import axios from "axios";
 
 export const bookBaseUrl=axios.create({
-    baseURL:"https://bookmanageserver.onrender.com/book",
+    baseURL:"http://localhost:8000/book",
 })

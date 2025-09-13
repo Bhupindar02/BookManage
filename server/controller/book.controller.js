@@ -13,7 +13,7 @@ const handleBookStoreController = async (req, res) => {
         .status(400)
         .json({ Message: "All field are required", Success: false });
     }
-    const bookAdd = await Book.insertOne(body);
+    const bookAdd = await Book.create(body);
 
     if (bookAdd) {
       return res
@@ -42,7 +42,7 @@ const handleBookListsController = async (req, res) => {
         BookList: bookList,
       });
   } catch (error) {
-    return res.status(400).json({ Message: error.Message, Success: false });
+    return res.status(400).json({ Message: error.message, Success: false });
   }
 };
 const handleBookDeleteController=async(req,res)=>{
@@ -57,7 +57,7 @@ const body = req.body
       })
     }
   } catch (error) {
-    return res.status(400).json({ Message: error.Message, Success: false });
+    return res.status(400).json({ Message: error.message, Success: false });
 
   }
 }
@@ -74,7 +74,7 @@ const handleBookUpdateController=async(req,res)=>{
       })
     }
   } catch (error) {
-    return res.status(400).json({ Message: error.Message, Success: false });
+    return res.status(400).json({ Message: error.message, Success: false });
   }
 }
 module.exports = { handleBookStoreController,handleBookListsController,handleBookDeleteController,handleBookUpdateController };
